@@ -11,7 +11,7 @@ export const Card = (product: {
 }): JSX.Element => {
   return (
     <>
-      <Link href={`/pages/product-details`} className="w-full">
+      <Link href={`/pages/product-details/${product.id}`} className="w-full">
         <div className="w-full flex h-auto ">
           <div className="min-h-fit w-full overflow-hidden  bg-[#fff] border border-[#3A3434]/8 rounded-[16px]">
             <div className=" bg-[#D9D9D9] overflow-hidden">
