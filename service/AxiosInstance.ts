@@ -5,8 +5,8 @@ import { decrypt, encrypt } from '~/service/encryption';
 
 // Create an Axios instance
 const axiosInstance = axios.create({
-    baseURL: 'https://sandbox.hivvy.app/api/', 
-        // Replace with your actual base URL
+  baseURL: 'https://fakestoreapi.com/'
+  // Replace with your actual base URL
 });
 
 // Optional: Add an interceptor to include authorization token in requests
