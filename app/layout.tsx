@@ -5,9 +5,9 @@ import localFont from "next/font/local";
 // Importing Metadata type from "next"
 import type { Metadata } from "next";
 import "./globals.css";
-import AuthLayout from "~/components/Layouts/AuthLayout";
+// import AuthLayout from "~/components/Layouts/AuthLayout";
 import { usePathname } from "next/navigation";
-import FeedLayout from "~/components/Layouts/FeedLayout";
+// import FeedLayout from "~/components/Layouts/FeedLayout";
 import DefaultLayout from "~/components/Layouts/DefaultLayout";
 import Hoc from "~/components/Layouts/Hoc";
 import { DarkModeProvider } from "~/Context/DarkModeContext";
