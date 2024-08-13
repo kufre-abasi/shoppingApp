@@ -4,7 +4,6 @@ type WalletProps = {
   handleToggleWalletTopUp: () => void;
   onClick?: React.MouseEventHandler<HTMLDivElement>;
 };
-import { useWalletStore } from '~/app/Store/slices/walletSlice';
 import { useToast } from '~/components/ui/use-toast';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -39,37 +38,7 @@ const Modal: React.FC<WalletProps> = ({
       handleToggleWalletTopUp();
     }
   };
-  const { topUpWallet } = useWalletStore((state) => ({
-    topUpWallet: state.topUpWallet
-  }));
-  const Submit = async (event: any) => {
-    const data = getValues();
 
-    try {
-      setLoading(true);
-
-      const result: any = await topUpWallet({ amount: Number(data.amount) });
-      if (result?.status === true) {
-      handleToggleWalletTopUp();
-      window.open(result?.data.url, '_blank');
-      }
-      return result;
-    } catch (error: any) {
-      toast({
-        title: `Uh oh! Something went wrong.`,
-        description: `There was a problem with your request. ${error.response.data.message}`,
-        variant: 'destructive'
-      });
-      setLoading(false);
-    }
-  };
-//   {
-//     "message": "Successfully intiated an funding",
-//     "data": {
-//         "url": "https:\/\/checkout.paystack.com\/l7hrc5k9jfryymz"
-//     },
-//     "status": true
-// }
   useEffect(() => {
     document.addEventListener('mousedown', handleClickOutside);
     return () => {
@@ -97,7 +66,6 @@ const Modal: React.FC<WalletProps> = ({
             </h3>
           </div>{' '}
           <form
-            onSubmit={handleSubmit((event) => Submit(event))}
             className="flex flex-col gap-4"
           >
             <div className="">

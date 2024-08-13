@@ -15,7 +15,6 @@ import { Poppins } from "@next/font/google";
 import { Toaster } from "~/components/ui/toaster";
 // import ProtectedRoute from "~/components/Auth/ProtectedRoute";
 import { AuthProvider } from "~/Context/AuthContext";
-import { PostProvider } from "~/Context/HivePostContext";
 
 export const metadata: Metadata = {
   title: "Klassy",
@@ -136,7 +135,7 @@ export default function RootLayout({
       className={`${gooper.variable} ${poppins.className} ${general_Sans.variable} ${satoshi.variable} ${gooperRegular.variable}`}
     >
       <body className="">
-        <PostProvider>
+        {/* <PostProvider> */}
         {/* <AuthProvider> */}
         {/* <ProtectedRoute> */}
           <DarkModeProvider>
@@ -151,7 +150,7 @@ export default function RootLayout({
           <Toaster />
         {/* </ProtectedRoute> */}
         {/* </AuthProvider> */}
-        </PostProvider>
+        {/* </PostProvider> */}
       </body>
     </html>
   );
