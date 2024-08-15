@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect } from 'react';
 
 interface Option {
   label: string;
@@ -9,10 +9,12 @@ interface AnimatedCountryProps {
   onSelectChange: (selectedValue: string) => void;
 }
 
-const AnimatedCountry: React.FC<AnimatedCountryProps> = ({ onSelectChange }) => {
+const AnimatedCountry: React.FC<AnimatedCountryProps> = ({
+  onSelectChange
+}) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [options, setOptions] = useState<Option[]>([]);
-  const [searchTerm, setSearchTerm] = useState<string>("");
+  const [searchTerm, setSearchTerm] = useState<string>('');
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -26,30 +28,30 @@ const AnimatedCountry: React.FC<AnimatedCountryProps> = ({ onSelectChange }) => 
       }
     };
 
-    document.addEventListener("mousedown", handleOutsideClick);
+    document.addEventListener('mousedown', handleOutsideClick);
 
     return () => {
-      document.removeEventListener("mousedown", handleOutsideClick);
+      document.removeEventListener('mousedown', handleOutsideClick);
     };
   }, []);
 
   useEffect(() => {
     const fetchOptions = async () => {
       try {
-        const response = await fetch("https://sandbox.hivvy.app/api/countries");
+        const response = await fetch('https://sandbox.hivvy.app/api/countries');
         if (!response.ok) {
-          throw new Error("Failed to fetch options");
+          throw new Error('Failed to fetch options');
         }
         const data = await response.json();
         const formattedOptions: Option[] = data.data.map(
           (item: { name: string; id: number }) => ({
             label: item.name,
-            value: item.id.toString(),
+            value: item.id.toString()
           })
         );
         setOptions(formattedOptions);
       } catch (error) {
-        console.error("Error fetching options:", error);
+        console.error('Error fetching options:', error);
       }
     };
 
@@ -71,12 +73,13 @@ const AnimatedCountry: React.FC<AnimatedCountryProps> = ({ onSelectChange }) => 
   );
   return (
     <div className="relative inline-block text-left ">
-
-<label >Country<span className='text-red-400'>*</span></label>
+      <label>
+        Country<span className="text-red-400">*</span>
+      </label>
       <div
         onClick={toggleDropdown}
         className={`inline-flex justify-between w-full text-sm font-medium text-gray-700 focus:outline-none focus:ring-2 focus:border-transparent transition-transform duration-300  border-gray-200 ]  border gap-2 py-4 px-3 bg-white  dark:bg-[#000000]  dark:text-white ${
-          isOpen ? "transform rounded-t-xl " : "rounded-xl"
+          isOpen ? 'transform rounded-t-xl ' : 'rounded-xl'
         }`}
       >
         <div className="flex items-center gap-2 bg-py-3">
@@ -96,7 +99,7 @@ const AnimatedCountry: React.FC<AnimatedCountryProps> = ({ onSelectChange }) => 
           </svg>
 
           <button type="button" className="text-sm font-satoshi font-medium">
-            {selectedOption || "Country"}
+            {selectedOption || 'Country'}
           </button>
         </div>
 
@@ -106,7 +109,7 @@ const AnimatedCountry: React.FC<AnimatedCountryProps> = ({ onSelectChange }) => 
           viewBox="0 0 24 24"
           stroke="currentColor"
           className={`w-5 h-5 ml-2 ${
-            isOpen ? "transform rotate-180" : "-mr-1"
+            isOpen ? 'transform rotate-180' : '-mr-1'
           }`}
         >
           <path
@@ -120,7 +123,9 @@ const AnimatedCountry: React.FC<AnimatedCountryProps> = ({ onSelectChange }) => 
 
       <div
         className={`origin-top-right w-full shadow-lg  max-h-44  overflow-y-auto  bg-white dark:bg-[#000000] sticky top-0   border-gray-200 dark:text-white ring-1 ring-black ring-opacity-5 transition-all ${
-          isOpen ? "scale-y-100 opacity-100 rounded-b-xl b" : "scale-y-0 opacity-0"
+          isOpen
+            ? 'scale-y-100 opacity-100 rounded-b-xl b'
+            : 'scale-y-0 opacity-0'
         }`}
       >
         {isOpen && (
@@ -167,7 +172,7 @@ const AnimatedCountry: React.FC<AnimatedCountryProps> = ({ onSelectChange }) => 
                 <a
                   href="#"
                   key={index}
-                  className="block px-4 py-2 text-sm text-gray-700 dark:text-white hover:bg-klassy-black hover:-text-white"
+                  className="block px-4 py-2 text-sm text-gray-700 dark:text-white hover:bg-shoppingApp-black hover:-text-white"
                   role="menuitem"
                   onClick={() => handleOptionClick(option)}
                 >
