@@ -1,6 +1,4 @@
 'use client'
-
-  
   // Import necessary modules
   'use client'
   import Image from 'next/image';
@@ -14,11 +12,22 @@
   // import Input from '~/components/ReuseableInput';
 import SearchNormalIcon from '~/components/ui/icons/SearchNormalIcon';
 import ContainLayout from '~/components/Container';
+import Link from 'next/link';
+import CartIcon from '~/components/ui/icons/CartIcon';
+import { useCartStore } from '~/app/Store/slices/cart';
 
   // Define the component
   const TopNavbar = () => {
     const [darkMode, setDarkMode] = useState(false);
 
+       const { cartItems, addToCart, updateCartQuantity } = useCartStore(
+         (state) => ({
+           cartItems: state.cartItems,
+           addToCart: state.addToCart,
+           updateCartQuantity: state.updateCartQuantity
+         })
+       );
+const cartItemLength = Object.keys(cartItems).length;
     useEffect(() => {
       const savedDarkMode = localStorage.getItem("darkMode");
       if (savedDarkMode === "true") {
@@ -53,9 +62,21 @@ import ContainLayout from '~/components/Container';
       items-center "
     >
       <ContainLayout>
-        <div className="flex  justify-between mx-auto   py-6 items-center ">
-          <div className="font-gooper text-2xl ">shoppingApp</div>
+        <div className="flex  justify-between w-full gap-4  py-6 items-center ">
+          <Link href={`/`} className="w-full">
+            <div className="font-gooper text-2xl ">shoppingApp</div>
+          </Link>
           <div className="flex gap-2 lg:gap-2 items-center">
+            <Link
+              href={`/pages/cart`}
+              className="w-full bg-white relative p-3 rounded-full"
+            >
+              <CartIcon />
+              <span className="bg-red-600 text-white px-2 py-1 absolute -top-2 -right-2 rounded-full">
+                {cartItemLength}
+              </span>
+            </Link>
+
             {/* <div className="cursor-pointer" onClick={toggleDarkMode}>
               {darkMode ? <DarkModeIcon /> : <LightModeIcon />}
             </div> */}

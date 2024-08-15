@@ -25,7 +25,7 @@ const page = ({ params }: { params: { id: string } }) => {
         <div className="min-h-screen">
           {/* itemId={route.query.id as string}  */}
           {/* data: string; data: string; */}
-          <ProductDetails  />
+          <ProductDetails params={params} />
         </div>
       </ContainLayout>
     </div>
