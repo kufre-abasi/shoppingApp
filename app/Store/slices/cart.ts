@@ -7,6 +7,7 @@ export type UserState = {
   cartItems: { [id: string]: { quantity: number; product: any } }; // Add cart items state
   status: 'idle' | 'loading' | 'succeeded' | 'failed';
   error: string | null;
+  loading: boolean;
 };
 
 export type UserActions = {
@@ -22,8 +23,7 @@ export const useCartStore = create<CartStore>((set, get) => ({
     : {}, // Load cart items from cookies
   status: 'idle',
   error: null,
-
-
+  loading: false,
 
   addToCart: (product) => {
     const currentCart = get().cartItems;
