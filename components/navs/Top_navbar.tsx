@@ -28,32 +28,32 @@ import { useCartStore } from '~/app/Store/slices/cart';
          })
        );
 const cartItemLength = Object.keys(cartItems).length;
-    useEffect(() => {
-      const savedDarkMode = localStorage.getItem("darkMode");
-      if (savedDarkMode === "true") {
-        enableDarkMode();
-      }
-    }, []);
+    // useEffect(() => {
+    //   const savedDarkMode = localStorage.getItem("darkMode");
+    //   if (savedDarkMode === "true") {
+    //     enableDarkMode();
+    //   }
+    // }, []);
   
-    const toggleDarkMode = () => {
-      if (darkMode) {
-        disableDarkMode();
-      } else {
-        enableDarkMode();
-      }
-    };
+    // const toggleDarkMode = () => {
+    //   if (darkMode) {
+    //     disableDarkMode();
+    //   } else {
+    //     enableDarkMode();
+    //   }
+    // };
   
-    const enableDarkMode = () => {
-      document.body.classList.add("dark");
-      setDarkMode(true);
-      localStorage.setItem("darkMode", "true");
-    };
+    // const enableDarkMode = () => {
+    //   document.body.classList.add("dark");
+    //   setDarkMode(true);
+    //   localStorage.setItem("darkMode", "true");
+    // };
   
-    const disableDarkMode = () => {
-      document.body.classList.remove("dark");
-      setDarkMode(false);
-      localStorage.setItem("darkMode", "false");
-    };
+    // const disableDarkMode = () => {
+    //   document.body.classList.remove("dark");
+    //   setDarkMode(false);
+    //   localStorage.setItem("darkMode", "false");
+    // };
   
      
   return (

@@ -37,7 +37,7 @@ export const DarkModeProvider: React.FC<DarkModeProviderProps> = ({ children }) 
     } else {
       document.body.classList.remove('dark');
     }
-    localStorage.setItem('darkMode', darkMode.toString());
+    // localStorage.setItem('darkMode', darkMode.toString());
   }, [darkMode]); // Dependency array: update only when darkMode changes
 
   const toggleDarkMode = () => {
