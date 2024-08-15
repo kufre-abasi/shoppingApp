@@ -26,7 +26,7 @@ export const ProductGrid: React.FC = ({  }) => {
           {loading ? (
             <ProductLoader numberOfLoaders={products?.length || 8} /> // Display ProfileLoader during the loading delay
           ) : (
-            <div className="grid lg:grid-cols-4 grid-cols-1 lg:mt-[56px] gap-[40px] mt-5">
+            <div className="grid lg:grid-cols-4 grid-cols-2 lg:mt-[56px] gap-[40px] mt-5">
               {products?.map((product: any) => (
                 <Card
                   key={product.id}
