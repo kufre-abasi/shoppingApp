@@ -1,4 +1,4 @@
-import type { Config } from "tailwindcss"
+import type { Config } from 'tailwindcss';
 
 const config = {
   darkMode: ['class'],
@@ -23,15 +23,14 @@ const config = {
         gooperRegular: ['var(--font-gooperRegular)'],
         satoshi: ['var(--font-satoshi)'],
         general_Sans: ['var(--font-general_Sans)'],
-        poppins: ['var(--font-poppins)'],
-        
+        poppins: ['var(--font-poppins)']
       },
 
       colors: {
-        klassy: {
+        shoppingApp: {
           dark: '#131313',
           light: '#F4F4F4',
-          lemon:'rgba(159,215,2,1)'
+          lemon: 'rgba(159,215,2,1)'
         },
 
         border: 'hsl(var(--border))',
@@ -92,4 +91,4 @@ const config = {
   plugins: [require('tailwindcss-animate')]
 } satisfies Config;
 
-export default config
+export default config;
