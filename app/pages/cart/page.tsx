@@ -36,13 +36,13 @@ const CartPage = (): JSX.Element => {
       {Object.keys(cartItems).length === 0 ? (
         <p className="!text-white">Your cart is empty.</p>
       ) : (
-        <div className="flex flex-row gap-6 w-full">
+        <div className="flex lg:flex-row flex-col gap-6 w-full">
           {/* List of Cart Items */}
           <div className="space-y-4 w-full">
             {Object.values(cartItems).map(({ product, quantity }) => (
               <div
                 key={product.id}
-                className="flex justify-between items-center p-4 bg-gray-100 rounded-md"
+                className="flex lg:flex-row flex-col justify-between items-center p-4 bg-gray-100 rounded-md"
               >
                 <img
                   src={product.image}
@@ -79,7 +79,7 @@ const CartPage = (): JSX.Element => {
           </div>
 
           {/* Cart Summary */}
-          <div className="w-[30%]">
+          <div className="lg:w-[30%] w-full">
             {' '}
             <div className=" p-4 bg-gray-100  rounded-md">
               <h2 className="text-xl font-bold">Cart Summary</h2>
